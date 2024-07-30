@@ -1,0 +1,17 @@
+.messagebox-inner {
+  display: flex-inline;
+  border: 1px solid black;
+  height: 500px;
+  width: 1000px;
+  padding: auto;
+}
+
+#messageinput {
+  width: 985px;
+  height: auto;
+  margin: 5px;
+}
+
+#submitbutton {
+  margin: 5px;
+}
