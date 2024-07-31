@@ -5,37 +5,26 @@ import QuoteDisplay from '../components/quotedisplay.jsx';
 
 const QuoteAPI = (props) => {
   const [quote, setQuote] = useState('');
+  const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
-  const [quoteList, setQuoteList] = useState([]);
 
   const handleSelect = async (e) => {
-    setCategory(e);
     try {
-      //   const fetchedQuote = await fetch(
-      //     'https://api.api-ninjas.com/v1/quotes?category=' + category,
-      //     {
-      //       method: 'GET',
-      //       headers: { 'X-Api-Key': 'RW2z72sDh5rhcuMRGN/DMQ==rITkXYIbLpquXurI' },
-      //       contentType: 'application/json',
-      //     }
-      //   );
       const fetchedQuote = await fetch('http://localhost:8080/api', {
         method: 'POST',
-        body: category,
-        'Content-Type': 'application/json',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ category: e }),
       });
       const newQuote = await fetchedQuote.json();
-      setQuote(newQuote);
-      setQuoteList([...quoteList, quote]);
-      props.quote = quote.quote;
-      props.author = quote.author;
-      props.category = quote.category;
-      setQuote('');
+      setQuote(newQuote[0].quote);
+      setAuthor(newQuote[0].author);
+      setCategory(newQuote[0].category);
     } catch {
       throw new Error('Your request was not able to be fulfilled at this time');
     }
   };
-
   return (
     <div className="quote-outer">
       <div className="quote-inner">
@@ -114,7 +103,12 @@ const QuoteAPI = (props) => {
             <option value="success">Success</option>
           </select>
         </form>
-        <QuoteDisplay quote={quote} />
+        <QuoteDisplay
+          key="quoteDisplay"
+          quote={quote}
+          author={author}
+          category={category}
+        />
         <div className="cat-list-container">
           <Categories />
         </div>

@@ -17,18 +17,14 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api', async (req, res) => {
-  console.log(req);
-  const fetchedQuote = await fetch(
-    'https://api.api-ninjas.com/v1/quotes?category=' + req.body.category,
-    {
-      method: 'GET',
-      headers: { 'X-Api-Key': 'RW2z72sDh5rhcuMRGN/DMQ==rITkXYIbLpquXurI' },
-      contentType: 'application/json',
-    }
-  );
-  // console.log(fetchedQuote);
-  res.locals.quote = fetchedQuote;
-  return res.status(200).send(res.locals.quote);
+  const fetchUrl = `https://api.api-ninjas.com/v1/quotes?category=${req.body.category}`;
+  const fetchedQuote = await fetch(fetchUrl, {
+    method: 'GET',
+    headers: { 'X-Api-Key': 'RW2z72sDh5rhcuMRGN/DMQ==rITkXYIbLpquXurI' },
+    contentType: 'application/json',
+  });
+  const quote = await fetchedQuote.json();
+  return res.status(200).send(quote);
 });
 
 app.listen(PORT, () => {
