@@ -27,6 +27,18 @@ app.post('/api', async (req, res) => {
   return res.status(200).send(quote);
 });
 
+app.use((res, req) =>
+  res.status(404).send('This is not the page you are looking for...')
+);
+
+app.use((err, req, res, next) => {
+  const defaultErr = {
+    log: 'Express error handler caught unknown error',
+    status: 500,
+    message: { err: 'An error occured' },
+  };
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });

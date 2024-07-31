@@ -2,12 +2,19 @@ import React from 'react';
 import { useState } from 'react';
 import SavedQuotes from './savedquotes.jsx';
 
+const checkList = new Set();
+
 const SaveButton = (props) => {
   const { quote, author, category } = props;
   const [quoteList, setQuoteList] = useState([]);
 
   const handleClick = () => {
-    setQuoteList([...quoteList, [quote, author, category]]);
+    if (quote && author && category) {
+      if (!checkList.has(quote)) {
+        checkList.add(quote);
+        setQuoteList([...quoteList, [quote, author, category]]);
+      }
+    }
   };
 
   return (
@@ -17,15 +24,20 @@ const SaveButton = (props) => {
           Click Here To Save Quote
         </button>
         <div className="save-quote-container">
-          {quoteList.map((quote) => {
-            return (
-              <SavedQuotes
-                quote={quote[0]}
-                author={quote[1]}
-                category={quote[2]}
-              />
-            );
-          })}
+          Saved Quotes:
+          <section className="saved-quotes">
+            {quoteList.map((quote) => {
+              return (
+                <SavedQuotes
+                  id={quote[0]}
+                  quote={quote[0]}
+                  author={quote[1]}
+                  category={quote[2]}
+                  quoteList={quoteList}
+                />
+              );
+            })}
+          </section>
         </div>
       </div>
     </div>

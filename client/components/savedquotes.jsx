@@ -1,7 +1,8 @@
 import React from 'react';
+import ShareQuote from './sharequote.jsx';
 
 const SavedQuotes = (props) => {
-  const { quote, author, category } = props;
+  const { quote, author, category, quoteList } = props;
   return (
     <div className="saved-quote-outer">
       <div className="saved-quote-inner">
@@ -19,6 +20,7 @@ const SavedQuotes = (props) => {
             {category}
           </div>
         </section>
+        <ShareQuote quote={quote} author={author} quoteList={quoteList} />
       </div>
     </div>
   );
