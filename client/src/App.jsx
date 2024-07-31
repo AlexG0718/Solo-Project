@@ -1,10 +1,11 @@
 import React from 'react';
-import MainRoom from './mainroom.jsx';
+import QuoteAPI from '../components/quoteAPI.jsx';
 
 const App = (props) => {
   return (
     <div className="app-container">
-      <MainRoom />
+      <h4>To gain inspiration, simply provide a category below</h4>
+      <QuoteAPI />
     </div>
   );
 };

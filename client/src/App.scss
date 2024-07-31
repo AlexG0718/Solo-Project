@@ -1,17 +1,27 @@
-.messagebox-inner {
-  display: flex-inline;
+.cat-form-label {
+  padding-right: 10px;
+}
+
+#cat-input {
+  height: 1px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.cat-list-title {
+  margin-top: 30px;
+}
+
+.cat-list {
+  display: flex;
+  flex-direction: column;
   border: 1px solid black;
-  height: 500px;
-  width: 1000px;
-  padding: auto;
+  list-style: circle;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 150px;
 }
 
-#messageinput {
-  width: 985px;
-  height: auto;
-  margin: 5px;
-}
-
-#submitbutton {
-  margin: 5px;
+.submit-button {
+  display: inline;
 }
