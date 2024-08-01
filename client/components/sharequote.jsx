@@ -1,14 +1,9 @@
 import React from 'react';
 
 const ShareQuote = (props) => {
-  const { quote, author } = props;
+  const { quote, author, handleState } = props;
 
   const shareLink = `mailto:?body=Quote: ${quote} %0D%0A %0D%0A Author: ${author}`;
-
-  const handleClick = () => {
-    const rmEle = document.getElementById(quote);
-    document.remove(rmEle);
-  };
 
   return (
     <div className="share-delete-container">
@@ -16,7 +11,7 @@ const ShareQuote = (props) => {
         <button
           className="remove-button"
           type="submit"
-          onClick={(e) => handleClick()}
+          onClick={(e) => handleState(quote)}
         >
           Delete
         </button>

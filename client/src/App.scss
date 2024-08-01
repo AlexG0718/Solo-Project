@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 body {
-  background-color: aliceblue;
+  background-image: linear-gradient(to bottom right, aliceBlue, #519ce2);
+  // background-image: linear-gradient(to bottom right, #e196e1, #8218af);
+  // background-image: linear-gradient(to bottom right, #efedea, #223a2c);
   padding-bottom: 10px;
   margin-bottom: 10px;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
 }
 
 h4 {
@@ -12,6 +20,22 @@ h4 {
   border: 10px solid transparent;
   margin: 10px;
   padding: 10px;
+}
+
+.theme-menu-container {
+  float: right;
+  padding-right: 10px;
+  margin-right: 10px;
+  display: inline;
+  position: absolute;
+  right: 50px;
+  top: 5%;
+}
+
+.theme-menu {
+  padding-left: 15px;
+  margin-left: 6px;
+  margin-top: 5px;
 }
 
 .cat-form-label {
@@ -54,6 +78,11 @@ h4 {
   font-weight: bold;
 }
 
+.label-render-theme {
+  background-color: white;
+  padding: 2px;
+}
+
 .quote-render {
   max-width: 1100px;
   width: max-content;
@@ -79,8 +108,9 @@ h4 {
 #save-button {
   display: inline;
   position: absolute;
-  right: 700px;
+  right: 724px;
   top: 45%;
+  border-radius: 10px;
   // position: fixed;
   // float: right;
   // width: max-content;
@@ -110,6 +140,7 @@ h4 {
 .saved-quote {
   // display: flex-block;
   border: 1px solid black;
+  border-radius: 10px;
   background-color: lightgoldenrodyellow;
   float: right;
   width: max-content;
@@ -122,6 +153,8 @@ h4 {
   margin-right: 10px;
   margin-top: 10px;
   padding-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 5px 3px 10px;
 }
 
 .saved-quote-quote {
@@ -140,12 +173,14 @@ h4 {
 }
 
 .remove-button {
+  border-radius: 10px;
   float: right;
   margin: 5px;
   margin-top: 10px;
 }
 
 .share-button {
+  border-radius: 10px;
   margin: 5px;
   margin-top: 10px;
 }

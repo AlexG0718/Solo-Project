@@ -19,6 +19,7 @@ const QuoteDisplay = (props) => {
           </div>
         </section>
         <SaveButton
+          key="saveButton"
           id="saveButton"
           quote={quote}
           author={author}

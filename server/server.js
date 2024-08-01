@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const DIST_DIR = path.join(__dirname, 'build/static');
 const HTML_FILE = path.join(__dirname, './src/index.html');
+const SCSS_FILE = path.join(__dirname, './src/App.scss');
 
 app.use(express.json());
 app.use(cors());
@@ -14,6 +15,10 @@ app.use(express.static(DIST_DIR));
 
 app.get('/', (req, res) => {
   express.sendFile(HTML_FILE);
+});
+
+app.get('/client/src/App.scss', (req, res) => {
+  express.sendFile(SCSS_FILE);
 });
 
 app.post('/api', async (req, res) => {

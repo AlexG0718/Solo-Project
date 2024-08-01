@@ -17,6 +17,16 @@ const SaveButton = (props) => {
     }
   };
 
+  const handleState = (deleteQuote) => {
+    let newQuoteList = quoteList.slice();
+    newQuoteList.map((quoteArr, idx) => {
+      if (quoteArr[0] === deleteQuote) {
+        newQuoteList.splice(idx, 1);
+      }
+    });
+    setQuoteList(newQuoteList);
+  };
+
   return (
     <div className="save-button-outer">
       <div className="save-button-inner">
@@ -29,11 +39,13 @@ const SaveButton = (props) => {
             {quoteList.map((quote) => {
               return (
                 <SavedQuotes
+                  key={quote[0]}
                   id={quote[0]}
                   quote={quote[0]}
                   author={quote[1]}
                   category={quote[2]}
                   quoteList={quoteList}
+                  handleState={handleState}
                 />
               );
             })}
