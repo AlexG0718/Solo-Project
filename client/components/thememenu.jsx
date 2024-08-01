@@ -4,7 +4,7 @@ const ThemeMenu = (props) => {
   const themes = {
     light: 'linear-gradient(to bottom right, aliceBlue, #519ce2)',
     dark: 'linear-gradient(to bottom right, lightGrey, #223a2c)',
-    colorful: 'linear-gradient(to bottom right, #e196e1, #8218af)',
+    // colorful: 'linear-gradient(to bottom right, #e196e1, #8218af)',
   };
   const handleChange = (theme) => {
     document.body.style.background = themes[theme];
@@ -20,9 +20,9 @@ const ThemeMenu = (props) => {
         className="theme-menu"
         onChange={(e) => handleChange(e.target.value)}
       >
+        <option value="colorful">Colorful</option>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
-        <option value="colorful">Colorful</option>
       </select>
     </div>
   );
